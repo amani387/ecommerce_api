@@ -1,0 +1,11 @@
+Here's how these components work together:
+
+. When a client (e.g., a web browser) makes an HTTP request, Express.js routes are used to determine which controller (route handler) should handle the request.
+
+. The controller interacts with the Model to fetch, update, or manipulate data in the database. It then prepares the data to be sent to the View.
+
+. The controller passes the data to the appropriate React component. The React component then uses this data to render the user interface.
+
+. User interactions in the React components might trigger new requests to the Express server, creating a cycle in which data flows between the Model, Controller, and View.
+
+To make the MVC structure more understandable, consider organizing your project folder structure like this:

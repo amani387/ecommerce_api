@@ -1,0 +1,10 @@
+import express  from "express";
+import { createCategoryCtrl,deleteCategory,updateCategory,getSingleCategory,getallCategories } from "../controllers/catagoriesCtrl.js";
+import { islogedin } from "../middlewares/isLogedIn.js";
+const categoriesRouter =express.Router();
+categoriesRouter.post("/",islogedin,createCategoryCtrl);
+categoriesRouter.get("/",getallCategories);
+categoriesRouter.get("/:id",getSingleCategory);
+categoriesRouter.delete("/:id",deleteCategory);
+categoriesRouter.put("/:id",updateCategory);
+export default categoriesRouter; 
