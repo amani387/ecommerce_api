@@ -11,6 +11,8 @@ import colorRouter from "../routes/colorRouter.js";
 import reviewRouter from "../routes/reviewRouter.js";
 import orderRouter from "../routes/OrderRouter.js";
 import Order from "../model/Order.js";
+import path from "path"
+
 
 dotenv.config();
 dbConnect();
@@ -79,7 +81,12 @@ const order =await Order.findByIdAndUpdate(JSON.parse(orderId),
     response.send();
   }
 );
-
+app.use(express.static('public'))
+app.get('/',(req,res)=>{
+res.send(path.join(
+  'public','index.html'
+))
+})
 app.use(express.json());
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/users", userRoutes);
